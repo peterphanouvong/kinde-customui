@@ -2,6 +2,7 @@
 
 import React from "react";
 import {
+  getKindeCSRF,
   getKindeRequiredCSS,
   getKindeRequiredJS,
   getKindeWidget,
@@ -13,13 +14,19 @@ const Layout = ({ request, context }: KindePageEvent) => {
   return (
     <html>
       <head>
-        <title>Home</title>
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="robots" content="noindex" />
+        <meta name="csrf-token" content={getKindeCSRF()} />
+        <title>{context.widget.content.page_title}</title>
         {getKindeRequiredCSS()}
         {getKindeRequiredJS()}
       </head>
       <body>
-        <h1>Home</h1>
-        {getKindeWidget()}
+        <div id="root" data-roast-root="true">
+          <h1>Home</h1>
+          {getKindeWidget()}
+        </div>
       </body>
     </html>
   );
