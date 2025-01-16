@@ -4,6 +4,7 @@ import React from "react";
 import {
   getKindeRequiredCSS,
   getKindeRequiredJS,
+  getKindeWidget,
   KindePageEvent,
 } from "@kinde/infrastructure";
 import { renderToString } from "react-dom/server.browser";
@@ -18,6 +19,7 @@ const Layout = ({ request, context }: KindePageEvent) => {
       </head>
       <body>
         <h1>Home</h1>
+        {getKindeWidget()}
       </body>
     </html>
   );
