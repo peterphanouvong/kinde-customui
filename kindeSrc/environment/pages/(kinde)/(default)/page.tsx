@@ -1,10 +1,14 @@
 "use server";
 
 import React from "react";
-import { getKindeRequiredCSS, getKindeRequiredJS } from "@kinde/infrastructure";
+import {
+  getKindeRequiredCSS,
+  getKindeRequiredJS,
+  KindePageEvent,
+} from "@kinde/infrastructure";
 import { renderToString } from "react-dom/server.browser";
 
-const Layout = () => {
+const Layout = ({ request, context }: KindePageEvent) => {
   return (
     <html>
       <head>
@@ -19,7 +23,7 @@ const Layout = () => {
   );
 };
 
-export const Page = async () => {
-  const page = await Layout();
+export default async function Page(event: KindePageEvent): Promise<string> {
+  const page = await Layout(event);
   return renderToString(page);
-};
+}
