@@ -21,6 +21,14 @@ const Layout = ({ request, context }: KindePageEvent) => {
         <title>{context.widget.content.page_title}</title>
         {getKindeRequiredCSS()}
         {getKindeRequiredJS()}
+
+        <style>{`
+          :root {
+            --kinde-base-font-family: -apple-system, system-ui, BlinkMacSystemFont, Helvetica, Arial, Segoe UI, Roboto, sans-serif;
+
+          }
+
+        `}</style>
       </head>
       <body>
         <div data-roast-root="true">
