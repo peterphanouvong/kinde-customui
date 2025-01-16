@@ -23,8 +23,8 @@ const Layout = ({ request, context }: KindePageEvent) => {
         {getKindeRequiredJS()}
       </head>
       <body>
-        <div id="root" data-roast-root="true">
-          <h1>Home</h1>
+        <div data-roast-root="true">
+          <h1>Hello world</h1>
           {getKindeWidget()}
         </div>
       </body>
@@ -33,6 +33,6 @@ const Layout = ({ request, context }: KindePageEvent) => {
 };
 
 export default async function Page(event: KindePageEvent): Promise<string> {
-  const page = await Layout(event);
+  const page = Layout(event);
   return renderToString(page);
 }
